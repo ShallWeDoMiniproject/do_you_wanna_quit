@@ -1,4 +1,4 @@
-package com.doyouwannaquit.doyouwannaquit.api;
+package com.doyouwannaquit.doyouwannaquit.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

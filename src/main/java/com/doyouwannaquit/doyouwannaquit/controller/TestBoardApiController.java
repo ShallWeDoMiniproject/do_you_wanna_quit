@@ -9,11 +9,11 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-public class TestBoardController {
+public class TestBoardApiController {
 
     private final TestBoardRepository testBoardRepository;
 
-    @PostMapping("/test/")
+    @PostMapping("/test")
     public Long save(@RequestBody TestBoard testBoard){
         return testBoardRepository.save(testBoard).getId();
     }
