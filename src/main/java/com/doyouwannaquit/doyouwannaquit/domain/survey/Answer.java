@@ -5,25 +5,25 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "QUESTION")
-public class Question {
+@Table(name = "ANSWER")
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "q_id")
-    private Long id;
+    @Column(name = "a_id")
+    private Long Id;
+
+    @ManyToOne
+    @JoinColumn(name = "q_id")
+    private Question question;
 
     @NotNull
-    @Column(name = "q_context")
-    private String context;
+    @Column(name = "q_score")
+    private Long score;
 
-    @NotNull
-    @Column(name = "q_type")
-    private String category;
 }

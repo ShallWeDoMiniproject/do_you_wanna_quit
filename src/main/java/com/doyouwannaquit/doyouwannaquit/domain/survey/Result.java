@@ -5,25 +5,23 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "QUESTION")
-public class Question {
+@Table(name = "RESULT")
+public class Result {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "q_id")
-    private Long id;
+    @Column(name = "result_id")
+    private Long Id;
+
+    @OneToOne(mappedBy = "result")
+    private Survey survey;
 
     @NotNull
-    @Column(name = "q_context")
-    private String context;
-
-    @NotNull
-    @Column(name = "q_type")
-    private String category;
+    @Column(name = "result_sum")
+    private Long resultScore;
 }
